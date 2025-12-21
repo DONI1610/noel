@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.bg-motion {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("bg.jpg");
+
+    background-size: 110%;
+    background-position: center;
+    filter: blur(12px);
+
+    animation: bgMove 25s ease-in-out infinite alternate;
+}
+
+.sub {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+/* Card */
+.card {
+    width: fit-content;
+    min-width: 360px;
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+
+
+/* Top layout */
+.top {
+    display: flex;
+    gap: 16px;
+}
+
+/* Avatar */
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #22d3ee;
+    object-fit: cover;
+}
+
+/* Right side */
+.right {
+    flex: 1;
+}
+
+/* Quote */
+.quote {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #e5e7eb;
+    margin-bottom: 10px;
+}
+
+/* Icons row */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icons a {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #22d3ee;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #22d3ee;
+    text-decoration: none;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.icons a:hover {
+    background: #22d3ee;
+    color: #020617;
+}
+
+/* Name */
+.name {
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: bold;
+}
