@@ -1,14 +1,18 @@
-* {
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas!</title>
+    <style>
+        body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
+    height: 100vh;
 
-body {
-    min-height: 100vh;
-
-    background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    background-image:
+        linear-gradient(rgba(0, 31, 63, 0.6), rgba(7, 140, 235, 0.6)),
         url("bg.jpg");
 
     background-size: cover;
@@ -18,104 +22,108 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
     color: white;
 }
-.bg-motion {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("bg.jpg");
-
-    background-size: 110%;
-    background-position: center;
-    filter: blur(12px);
-
-    animation: bgMove 25s ease-in-out infinite alternate;
-}
-
-.sub {
-    text-align: center;
-    font-size: 13px;
-    opacity: 0.75;
-    letter-spacing: 0.5px;
-    margin-bottom: 14px;
-}
-
-/* Card */
-.card {
-    width: fit-content;
-    min-width: 360px;
-    padding: 20px;
-    border-radius: 24px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-}
 
 
-/* Top layout */
-.top {
-    display: flex;
-    gap: 16px;
-}
+        .card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
 
-/* Avatar */
-.avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid #22d3ee;
-    object-fit: cover;
-}
+        h1 {
+            font-size: 50px;
+            text-shadow: 0 0 10px red;
+            animation: glow 2s infinite alternate;
+        }
 
-/* Right side */
-.right {
-    flex: 1;
-}
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px red;
+            }
 
-/* Quote */
-.quote {
-    font-size: 13px;
-    line-height: 1.4;
-    color: #e5e7eb;
-    margin-bottom: 10px;
-}
+            to {
+                text-shadow: 0 0 30px gold;
+            }
+        }
 
-/* Icons row */
-.icons {
-    display: flex;
-    gap: 10px;
-}
+        .star {
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            position: absolute;
+            top: -200px;
+            left: 75px;
+            animation: twinkle 1s infinite alternate;
+        }
 
-.icons a {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1px solid #22d3ee;
+        @keyframes twinkle {
+            from {
+                opacity: 0.8;
+            }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            to {
+                opacity: 1;
+                box-shadow: 0 0 20px gold;
+            }
+        }
 
-    color: #22d3ee;
-    text-decoration: none;
-    font-size: 14px;
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
 
-    transition: 0.2s;
-}
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
 
-.icons a:hover {
-    background: #22d3ee;
-    color: #020617;
-}
+<body>
+    <div class="card">
+        <h1>Merry Christmas!</h1>
+        <p>Chúc bạn một Giáng sinh vui vẻ, ấm áp và hạnh phúc!</p>
+        <div class="star"></div>
 
-/* Name */
-.name {
-    margin-top: 18px;
-    font-size: 16px;
-    font-weight: bold;
-}
+    </div>
+    </div>
+
+    <!-- Tạo tuyết rơi bằng JS đơn giản -->
+    <script>
+        function createSnow() {
+            const snow = document.createElement('div');
+            snow.className = 'snowflake';
+            snow.innerText = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
+            snow.style.left = Math.random() * 100 + 'vw';
+            const size = Math.random() * 15 + 10;
+            snow.style.fontSize = size + 'px';
+            const duration = Math.random() * 10 + 10;
+            snow.style.animationDuration = duration + 's';
+            snow.style.animation = `fall ${duration}s linear infinite`;
+            snow.style.opacity = Math.random() * 0.5 + 0.5;
+
+            document.body.appendChild(snow);
+            setTimeout(() => {
+                snow.remove();
+            }, duration * 1000);
+        }
+        setInterval(createSnow, 150);
+        for (let i = 0; i < 100; i++) {
+            setTimeout(createSnow, i * 50);
+        }
+    </script>
+</body>
+
+</html>
