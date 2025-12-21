@@ -5,8 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merry Christmas!</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 
+    background-image:
+        linear-gradient(rgba(0, 31, 63, 0.6), rgba(7, 140, 235, 0.6)),
+        url("bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+
+        .card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        h1 {
+            font-size: 50px;
+            text-shadow: 0 0 10px red;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px red;
+            }
+
+            to {
+                text-shadow: 0 0 30px gold;
+            }
+        }
+
+        .star {
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            position: absolute;
+            top: -200px;
+            left: 75px;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.8;
+            }
+
+            to {
+                opacity: 1;
+                box-shadow: 0 0 20px gold;
+            }
+        }
+
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +98,7 @@
         <div class="star"></div>
 
     </div>
-
+    </div>
 
     <!-- Tạo tuyết rơi bằng JS đơn giản -->
     <script>
