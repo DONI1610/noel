@@ -22,21 +22,12 @@ body {
     font-family: Arial, sans-serif;
     color: white;
 }
-.bg-motion {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("bg.jpg");
-
-    background-size: 110%;
-    background-position: center;
-    filter: blur(12px);
-
-    animation: bgMove 25s ease-in-out infinite alternate;
+@media (max-width: 600px) {
+    .bg-motion {
+        filter: blur(6px);
+    }
 }
+
 
 .sub {
     text-align: center;
@@ -118,4 +109,56 @@ body {
     margin-top: 18px;
     font-size: 16px;
     font-weight: bold;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+@media (max-width: 600px) {
+
+    body {
+        padding: 16px;
+    }
+
+    .card {
+        width: 100%;
+        min-width: unset;
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .quote {
+        font-size: 13px;
+    }
+
+    .icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .icons a {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .name {
+        font-size: 15px;
+    }
 }
